@@ -4,7 +4,9 @@
 #include "Chopsticks.h"
 
 namespace Human {
-	Chopsticks::State move(Chopsticks::Player p1, Chopsticks::Player p2);
+
+Chopsticks::State move(Chopsticks::Player p1, Chopsticks::Player p2);
+
 }
 
 #endif

@@ -17,8 +17,16 @@ void Chopsticks::Hand::hit(Chopsticks::Hand &other) {
 		other.fingers = 0;
 }
 
+bool Chopsticks::Hand::operator==(const Chopsticks::Hand &rhs) const {
+	return fingers == rhs.fingers;
+}
+
 bool Chopsticks::Player::is_dead() const {
 	return left.is_dead() && right.is_dead();
+}
+
+bool Chopsticks::Player::operator==(const Chopsticks::Player &rhs) const {
+	return left == rhs.left && right == rhs.right;
 }
 
 Chopsticks::Winner Chopsticks::get_winner() const {

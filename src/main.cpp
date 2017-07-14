@@ -2,9 +2,10 @@
 
 #include "Chopsticks.h"
 #include "human.h"
+#include "ai.h"
 
 int main() {
-	Chopsticks game(Human::move, Human::move);
+	Chopsticks game(Human::move, AI::move);
 	while (game.get_winner() == Chopsticks::Winner::NONE) {
 		game.update();
 	}

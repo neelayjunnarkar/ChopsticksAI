@@ -2,6 +2,7 @@
 #define CHOPSTICKS_H
 
 #include <functional>
+#include <variant>
 
 class Chopsticks {
 public:
@@ -10,12 +11,14 @@ public:
 		int fingers = 1;
 		bool is_dead() const;
 		void hit(Hand &other);
+		bool operator==(const Hand &rhs) const;
 	};
 
 	struct Player {
 		Hand left;
 		Hand right;
 		bool is_dead() const;
+		bool operator==(const Player &rhs) const;
 	};
 
 	enum class Winner {
@@ -26,6 +29,18 @@ public:
 
 	using State = std::pair<Player, Player>;
 
+	struct Combination {
+		int l_f;
+		int r_f;
+	};
+
+	struct Hit {
+		std::string src;
+		std::string dst;
+	};
+
+	using Move = std::variant<Combination, Hit>;
+	
 	Chopsticks(std::function<State(Player, Player)> p1, std::function<State(Player, Player)> p2);
 
 	void update();
