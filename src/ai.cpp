@@ -134,7 +134,7 @@ Chopsticks::State move(Chopsticks::Player p, Chopsticks::Player other) {
 		[&](Chopsticks::Hit hit) {
 			handle_hit(p, other, hit);	
 		},
-		[&](Chopsticks::Comination combo) {
+		[&](Chopsticks::Combination combo) {
 			handle_combine(p, combo);
 		} 
 	}, best_move.first);
